@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoReact | إعادة تدوير البلاستيك إلى طلاء نانو مستدام</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eco: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            900: '#14532d',
+                        },
+                        tech: {
+                            dark: '#0f172a',
+                            card: '#1e293b'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-cairo bg-slate-900 text-slate-100 antialiased selection:bg-eco-500 selection:text-white">
+
+    <!-- شريط التنقل العلوي -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-eco-600 to-eco-400 flex items-center justify-center shadow-lg shadow-eco-600/30">
+                    <i class="fa-solid fa-atom text-white text-xl"></i>
+                </div>
+                <span class="text-2xl font-black tracking-wider bg-gradient-to-r from-white to-eco-400 bg-clip-text text-transparent">EcoReact</span>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-8 space-x-reverse text-sm font-semibold text-slate-300">
+                <a href="#about" class="hover:text-eco-400 transition">نبذة عننا</a>
+                <a href="#problem" class="hover:text-eco-400 transition">المشكلة</a>
+                <a href="#solution" class="hover:text-eco-400 transition">الحل والتقنية</a>
+                <a href="#process" class="hover:text-eco-400 transition">آلية العمل</a>
+                <a href="#benefits" class="hover:text-eco-400 transition">المزايا</a>
+                <a href="#partnerships" class="hover:text-eco-400 transition">الشراكات</a>
+            </nav>
+
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <a href="#contact" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-xl bg-eco-600 hover:bg-eco-500 text-white font-bold text-sm shadow-lg shadow-eco-600/30 transition transform hover:-translate-y-0.5">
+                    تواصل معنا / استثمار
+                </a>
+                <button id="menu-btn" class="md:hidden text-slate-300 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- القائمة المتنقلة للجوال -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-b border-slate-700 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-eco-400">نبذة عننا</a>
+            <a href="#problem" class="block py-2 text-slate-300 hover:text-eco-400">المشكلة</a>
+            <a href="#solution" class="block py-2 text-slate-300 hover:text-eco-400">الحل والتقنية</a>
+            <a href="#process" class="block py-2 text-slate-300 hover:text-eco-400">آلية العمل</a>
+            <a href="#benefits" class="block py-2 text-slate-300 hover:text-eco-400">المزايا</a>
+            <a href="#partnerships" class="block py-2 text-slate-300 hover:text-eco-400">الشراكات</a>
+            <a href="#contact" class="block text-center py-2.5 bg-eco-600 text-white rounded-xl font-bold">تواصل معنا</a>
+        </div>
+    </header>
+
+    <!-- قسم البطل (Hero Section) -->
+    <section class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-eco-900/20 via-slate-900 to-slate-900 -z-10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-eco-900/50 border border-eco-500/30 text-eco-400 text-sm font-semibold mb-6">
+                <i class="fa-solid fa-leaf"></i> الاقتصاد الدائري يتقاطع مع تقنية النانو
+            </div>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-8 leading-tight">
+                نحوّل نفايات البلاستيك إلى <br>
+                <span class="bg-gradient-to-r from-eco-400 via-emerald-300 to-teal-400 bg-clip-text text-transparent">مواد طلاء نانوية متقدمة</span>
+            </h1>
+            <p class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed">
+                نبتكر حلولاً صناعية مستدامة تعيد تدوير مخلفات البلاستيك (PET وPP) وتحويلها لطلاءات نانوية ذات أداء فائق وحماية متطورة للأسطح، مدعومة بالابتكار والاقتصاد الدائري.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-eco-600 hover:bg-eco-500 text-white font-bold text-lg shadow-xl shadow-eco-600/30 transition transform hover:-translate-y-1">
+                    انضم كمستثمر أو شريك
+                </a>
+                <a href="#solution" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-lg border border-slate-700 transition">
+                    اكتشف التقنية
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- نبذة عن المشروع (About) -->
+    <section id="about" class="py-20 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-eco-400 font-bold uppercase tracking-wider text-sm">من نحن</span>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-6">نبتكر مستقبل المواد المستدامة من قلب النفايات</h2>
+                    <p class="text-slate-300 text-lg leading-relaxed mb-6">
+                        شركة EcoReact هي شركة ناشئة متخصصة في الكيمياء الخضراء وتكنولوجيا النانو. نؤمن بأن ما يُعتبر "نفايات" اليوم هو المادة الخام لثورة التصنيع القادمة. نركز بشكل أساسي على معالجة م بوليمرات البولي إيثيلين تيرفثالات (PET) والبولي بروبيلين (PP) لتحويلها عبر عمليات كيميائية دقيقة إلى طلاءات نانوية فائقة الأداء.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 pt-4 border-t border-slate-800">
+                        <div>
+                            <h3 class="text-3xl font-black text-eco-400 mb-1">100%</h3>
+                            <p class="text-sm text-slate-400">اعتماد على الاقتصاد الدائري</p>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-black text-eco-400 mb-1">PET & PP</h3>
+                            <p class="text-sm text-slate-400">البوليمرات المستهدفة بامتياز</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-tech-card p-8 rounded-3xl border border-slate-700 relative shadow-2xl">
+                    <div class="absolute -top-4 -right-4 w-24 h-24 bg-eco-500/10 rounded-full blur-xl"></div>
+                    <h3 class="text-2xl font-bold mb-4 text-white flex items-center gap-3">
+                        <i class="fa-solid fa-bullseye text-eco-400"></i> رؤيتنا ورسالتنا
+                    </h3>
+                    <p class="text-slate-300 leading-relaxed mb-6">
+                        نسعى للقضاء على التلوث البلاستيكي في المكبات والبحار من خلال إيجاد تطبيقات صناعية ذات قيمة اقتصادية عالية، تلبي احتياجات قطاعات البناء، السيارات، والصناعات البحرية بكفاءة عالية.
+                    </p>
+                    <ul class="space-y-3 text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-eco-400"></i> خفض البصمة الكربونية للقطاع الصناعي</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-eco-400"></i> توفير مواد طلاء بخصائص نانوية فريدة ومضادة للتآكل</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-check-circle text-eco-400"></i> دعم أهداف التنمية المستدامة ورؤى المستقبل البيئي</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- المشكلة التي نعالجها (Problem) -->
+    <section id="problem" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eco-400 font-bold uppercase tracking-wider text-sm">التحدي العالمي</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-4">أزمة البلاستيك وتكاليف الطلاء التقليدي</h2>
+                <p class="text-slate-300">نواجه تحديين ضخمين في السوق الصناعي والبيئي الحالي.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- بطاقة مشكلة 1 -->
+                <div class="bg-tech-card p-8 rounded-3xl border border-red-500/20 hover:border-red-500/40 transition">
+                    <div class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">تراكم نفايات البلاستيك (PET و PP)</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        ملايين الأطنان من عبوات PET وأغلفة PP تُلقى سنوياً في المكبات أو تتسرب إلى المحيطات، وتستغرق مئات السنين لتحلل طبيعي يهدد النظم البيئية والحياة البرية والبحرية.
+                    </p>
+                </div>
+
+                <!-- بطاقة مشكلة 2 -->
+                <div class="bg-tech-card p-8 rounded-3xl border border-amber-500/20 hover:border-amber-500/40 transition">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-industry"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white">تكلفة وأضرار الطلاءات التقليدية</h3>
+                    <p class="text-slate-300 leading-relaxed">
+                        الطلاءات الصناعية التقليدية تعتمد على المواد البتروكيماوية البكر، وهي باهظة التكلفة، وتصدر مركبات عضوية متطايرة ضارة بصحة الإنسان والبيئة (VOCs).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الحل والتقنية (Solution & Technology) -->
+    <section id="solution" class="py-20 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eco-400 font-bold uppercase tracking-wider text-sm">الابتكار التقني</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-4">الحل الهندسي والتقني من EcoReact</h2>
+                <p class="text-slate-300">تحويل الجزيئات البلاستيكية إلى دروع نانوية واقية ذات أداء فائق.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+                    <div class="text-eco-400 text-3xl font-black mb-4">01</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">الهندسة الجزيئية</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        تفكيك سلاسل البوليمرات المستهلكة (PET و PP) وإعادة تشكيلها هندسياً على مستوى النانو لتكتسب خصائص التصاق ومتانة عالية جداً.
+                    </p>
+                </div>
+                <div class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+                    <div class="text-eco-400 text-3xl font-black mb-4">02</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">خصائص نانوية فائقة</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        إنتاج طلاء يتميز بمقاومة استثنائية للتآكل، الرطوبة، الأشعة فوق البنفسجية، والخدوش، مما يضاعف عمر الأسطح المعالجة.
+                    </p>
+                </div>
+                <div class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+                    <div class="text-eco-400 text-3xl font-black mb-4">03</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">خلو من المواد السامة</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        تركيبة متقدمة صديقة للبيئة تخلو من المركبات العضوية المتطايرة الخطرة، مما يجعلها آمنة للاستخدام الصناعي الواسع.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- آلية تحويل البلاستيك إلى مادة طلاء (Process) -->
+    <section id="process" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eco-400 font-bold uppercase tracking-wider text-sm">دورة الإنتاج</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-4">كيف نحول البلاستيك إلى طلاء نانوي؟</h2>
+                <p class="text-slate-300">عملية علمية مدروسة من النفايات إلى المنتج النهائي.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">1</div>
+                    <h3 class="font-bold text-lg mb-2 text-white">الجمع والفرز</h3>
+                    <p class="text-slate-400 text-xs">تجميع نفايات PET وPP وفرزها وتنظيفها بدقة عالية.</p>
+                </div>
+                <div class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">2</div>
+                    <h3 class="font-bold text-lg mb-2 text-white">المعالجة الكيميائية</h3>
+                    <p class="text-slate-400 text-xs">إخضاع البوليمرات لعمليات كيميائية خضراء لتعديل هيكلها.</p>
+                </div>
+                <div class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">3</div>
+                    <h3 class="font-bold text-lg mb-2 text-white">صياغة النانو</h3>
+                    <p class="text-slate-400 text-xs">تحويل المادة المدمجة إلى جزيئات نانوية مستقرة ومتجانسة.</p>
+                </div>
+                <div class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
+                    <div class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">4</div>
+                    <h3 class="font-bold text-lg mb-2 text-white">الطلاء النهائي</h3>
+                    <p class="text-slate-400 text-xs">تعبئة وتوزيع طلاء ذو جودة عالية جاهز للاستخدام الصناعي.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- المزايا والفوائد (Benefits) -->
+    <section id="benefits" class="py-20 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-eco-400 font-bold uppercase tracking-wider text-sm">القيمة التنافسية</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-4">لماذا تختار منتجات EcoReact؟</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+                    <i class="fa-solid fa-shield-halved text-eco-400 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-white">حماية مضاعفة</h3>
+                    <p class="text-slate-300 text-sm">مقاومة فائقة لعوامل التعرية، الخدوش والصدمات الكيميائية.</p>
+                </div>
+                <div class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+                    <i class="fa-solid fa-hand-holding-dollar text-eco-400 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-white">كفاءة اقتصادية</h3>
+                    <p class="text-slate-300 text-sm">تكلفة إنتاج أقل بفضل الاعتماد على النفايات كمادة أولية رخيصة ومتوفرة.</p>
+                </div>
+                <div class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+                    <i class="fa-solid fa-globe text-eco-400 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2 text-white">أثر بيئي إيجابي</h3>
+                    <p class="text-slate-300 text-sm">إزالة أطنان البلاستيك من البيئة وتحقيق معايير الحياد الكربوني.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الشراكات والفئات المستهدفة (Partnerships & Target Audience) -->
+    <section id="partnerships" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-eco-400 font-bold uppercase tracking-wider text-sm">العملاء والشركاء</span>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-6">الفئات المستهدفة وفرص الشراكة</h2>
+                    <p class="text-slate-300 mb-6 leading-relaxed">
+                        نستهدف الشركات والمؤسسات التي تبحث عن حلول مستدامة تخفض تكاليفها وترتقي بجودة منتجاتها وفق معايير الاستدامة العالمية ESG.
+                    </p>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-building text-eco-400"></i> شركات المقاولات والبناء (لطلاء الواجهات والهياكل المعدنية)</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-car text-eco-400"></i> قطاع صناعة السيارات (للطلاءات الوقائية المتقدمة)</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-ship text-eco-400"></i> المنشآت البحرية (لمقاومة التآكل الملحي)</li>
+                        <li class="flex items-center gap-3"><i class="fa-solid fa-handshake text-eco-400"></i> صناديق الاستثمار الجريء والجهات البيئية</li>
+                    </ul>
+                </div>
+                <div class="bg-gradient-to-br from-eco-900/40 to-slate-800 p-8 rounded-3xl border border-eco-500/30">
+                    <h3 class="text-2xl font-bold mb-4 text-white">فرص الشراكة الاستراتيجية</h3>
+                    <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+                        نرحب بالتعاون مع مصانع تدوير البلاستيك، مراكز الأبحاث المتقدمة، والمستثمرين الراغبين في قيادة مستقبل الكيمياء الخضراء معنا.
+                    </p>
+                    <div class="p-4 bg-slate-900/60 rounded-2xl border border-slate-700 mb-6">
+                        <span class="text-eco-400 font-bold block mb-1">لماذا تستثمر في EcoReact الآن؟</span>
+                        <p class="text-slate-400 text-xs">سوق طلاءات النانو وتدوير البلاستيك يشهد نمواً هائلاً مدفوعاً بالتشريعات البيئية العالمية الصارمة.</p>
+                    </div>
+                    <a href="#contact" class="block text-center py-3 bg-eco-600 hover:bg-eco-500 text-white font-bold rounded-xl transition">
+                        ناقش فرص التعاون الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نموذج للتواصل وطلب التعاون (Contact & Call to Action) -->
+    <section id="contact" class="py-20 bg-slate-900/50 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-eco-400 font-bold uppercase tracking-wider text-sm">تواصل معنا</span>
+                <h2 class="text-3xl sm:text-4xl font-black mt-2 mb-4">كن جزءاً من ثورة الاستدامة</h2>
+                <p class="text-slate-300">سواء كنت مستثمراً، عميلاً، أو شريكاً صناعياً، نحن بانتظار رسالتك.</p>
+            </div>
+
+            <form class="bg-tech-card p-8 sm:p-10 rounded-3xl border border-slate-700 shadow-2xl space-y-6" onsubmit="event.preventDefault(); alert('تم ارسال رسالتك بنجاح! سنتواصل معك قريباً.');">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-300 mb-2">الاسم الكامل</label>
+                        <input type="text" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500" placeholder="أدخل اسمك">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-300 mb-2">البريد الإلكتروني</label>
+                        <input type="email" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500" placeholder="name@example.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">صفة التواصل</label>
+                    <select class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500">
+                        <option>مستثمر / صندوق استثماري</option>
+                        <option>شريك صناعي أو تجاري</option>
+                        <option>عميل محتمل (طلب عينة / استفسار)</option>
+                        <option>أخرى</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-300 mb-2">الرسالة</label>
+                    <textarea rows="4" required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500" placeholder="اكتب تفاصيل استفسارك أو طلب الشراكة..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-eco-600 hover:bg-eco-500 text-white font-bold text-lg shadow-xl shadow-eco-600/30 transition">
+                    إرسال الطلب
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- التذييل (Footer) -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-right">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-8 h-8 rounded-lg bg-eco-600 flex items-center justify-center">
+                    <i class="fa-solid fa-atom text-white"></i>
+                </div>
+                <span class="text-xl font-bold text-white">EcoReact</span>
+            </div>
+            <p class="text-slate-400 text-sm">جميع الحقوق محفوظة © 2026 EcoReact. نحو اقتصاد دائري مستدام.</p>
+            <div class="flex space-x-4 space-x-reverse text-slate-400 text-lg">
+                <a href="#" class="hover:text-eco-400 transition"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-eco-400 transition"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="hover:text-eco-400 transition"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- سكريبت القائمة المنسدلة للجوال -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+    <!-- قسم حسابات التواصل الاجتماعي -->
+    <div class="social-links">
+        <p id="social-text">تابعنا على منصات التواصل أو راسلنا مباشرة:</p>
+        <div class="social-icons">
+            <a href="https://x.com/ecoreactt?s=11" target="_blank">تويتر (X)</a>
+            <a href="https://www.instagram.com/ecoreact11?igsi=MXh1NmN4MWgzcmR2MQ==" target="_blank">إنستقرام</a>
+            <a href="mailto:ecoreact@gmail.com">الإيميل</a>
+        </div>
+    </div>
