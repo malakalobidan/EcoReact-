@@ -1,1565 +1,1799 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" class="scroll-smooth">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>EcoReact | إعادة تدوير البلاستيك إلى طلاء نانو مستدام</title>
+<title>EcoReact | Green Chemistry & Nano Coatings</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta name="description" content="EcoReact - تحويل نفايات البلاستيك PET وPP إلى مواد طلاء نانوية مستدامة.">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap"
-        rel="stylesheet">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        eco: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
-                            500: '#22c55e',
-                            600: '#16a34a',
-                            700: '#15803d',
-                            900: '#14532d',
-                        },
-                        tech: {
-                            dark: '#0f172a',
-                            card: '#1e293b'
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                    }
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            fontFamily: {
+                cairo: ['Cairo', 'sans-serif']
+            },
+            colors: {
+                eco: {
+                    300:'#86efac',
+                    400:'#4ade80',
+                    500:'#22c55e',
+                    600:'#16a34a',
+                    700:'#15803d',
+                    900:'#14532d'
                 }
             }
         }
-    </script>
+    }
+}
+</script>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
 
-        body {
-            font-family: 'Cairo', sans-serif;
-        }
+*{
+    box-sizing:border-box;
+}
 
-        .logo-img {
-            width: 48px;
-            height: 48px;
-            object-fit: cover;
-            border-radius: 14px;
-            background: white;
-        }
+body{
+    font-family:'Cairo',sans-serif;
+    background:#020617;
+    color:#f8fafc;
+    overflow-x:hidden;
+}
 
-        .social-icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
+::selection{
+    background:#22c55e;
+    color:white;
+}
 
-        .social-icon:hover {
-            transform: translateY(-4px);
-        }
+/* Scrollbar */
 
-        .language-btn {
-            transition: all 0.3s ease;
-        }
+::-webkit-scrollbar{
+    width:8px;
+}
 
-        .language-btn:hover {
-            transform: translateY(-2px);
-        }
-    </style>
+::-webkit-scrollbar-track{
+    background:#020617;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#16a34a;
+    border-radius:20px;
+}
+
+/* Background */
+
+.grid-bg{
+    background-image:
+    linear-gradient(rgba(34,197,94,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(34,197,94,.035) 1px,transparent 1px);
+    background-size:50px 50px;
+}
+
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(80px);
+    pointer-events:none;
+}
+
+.glow-green{
+    background:rgba(34,197,94,.13);
+}
+
+.glow-blue{
+    background:rgba(20,184,166,.08);
+}
+
+/* Navbar */
+
+.navbar{
+    transition:.35s ease;
+}
+
+.navbar.scrolled{
+    background:rgba(2,6,23,.92);
+    backdrop-filter:blur(18px);
+    box-shadow:0 10px 40px rgba(0,0,0,.25);
+}
+
+/* Logo */
+
+.logo-img{
+    width:45px;
+    height:45px;
+    object-fit:cover;
+    border-radius:13px;
+    border:1px solid rgba(74,222,128,.35);
+    box-shadow:0 0 25px rgba(34,197,94,.18);
+}
+
+/* Gradient text */
+
+.gradient-text{
+    background:linear-gradient(
+        90deg,
+        #4ade80,
+        #2dd4bf,
+        #67e8f9
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+/* Hero */
+
+.hero-title{
+    text-shadow:0 0 50px rgba(34,197,94,.08);
+}
+
+.hero-orb{
+    width:420px;
+    height:420px;
+    border:1px solid rgba(74,222,128,.12);
+    border-radius:50%;
+    animation:orb 15s linear infinite;
+}
+
+.hero-orb:before,
+.hero-orb:after{
+    content:"";
+    position:absolute;
+    inset:35px;
+    border:1px solid rgba(45,212,191,.08);
+    border-radius:50%;
+}
+
+.hero-orb:after{
+    inset:75px;
+    border-color:rgba(103,232,249,.07);
+}
+
+@keyframes orb{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* Floating particles */
+
+.particle{
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:#4ade80;
+    border-radius:50%;
+    box-shadow:0 0 15px #22c55e;
+    animation:float 7s infinite ease-in-out;
+    opacity:.5;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+        opacity:.25;
+    }
+    50%{
+        transform:translateY(-35px);
+        opacity:.8;
+    }
+}
+
+/* Cards */
+
+.glass{
+    background:rgba(15,23,42,.58);
+    border:1px solid rgba(148,163,184,.12);
+    backdrop-filter:blur(14px);
+}
+
+.card{
+    transition:.35s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(74,222,128,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.25),
+               0 0 35px rgba(34,197,94,.06);
+}
+
+/* Reveal */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:opacity .8s ease,transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* Process */
+
+.process-line{
+    position:absolute;
+    top:30px;
+    left:10%;
+    right:10%;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(74,222,128,.4),
+        transparent
+    );
+}
+
+.process-number{
+    transition:.35s ease;
+}
+
+.process-card:hover .process-number{
+    transform:scale(1.12);
+    box-shadow:0 0 30px rgba(34,197,94,.3);
+}
+
+/* Buttons */
+
+.btn-primary{
+    position:relative;
+    overflow:hidden;
+}
+
+.btn-primary:after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:60%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.18),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.6s;
+}
+
+.btn-primary:hover:after{
+    left:130%;
+}
+
+/* Social */
+
+.social-btn{
+    transition:.3s ease;
+}
+
+.social-btn:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+/* Input */
+
+.input{
+    width:100%;
+    background:#020617;
+    border:1px solid #334155;
+    border-radius:14px;
+    padding:14px 16px;
+    color:white;
+    outline:none;
+    transition:.3s;
+}
+
+.input:focus{
+    border-color:#22c55e;
+    box-shadow:0 0 0 3px rgba(34,197,94,.08);
+}
+
+/* Back top */
+
+#topBtn{
+    opacity:0;
+    pointer-events:none;
+    transform:translateY(10px);
+    transition:.3s;
+}
+
+#topBtn.show{
+    opacity:1;
+    pointer-events:auto;
+    transform:translateY(0);
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+    .hero-orb{
+        width:280px;
+        height:280px;
+    }
+
+    .process-line{
+        display:none;
+    }
+
+}
+
+/* English */
+
+body.en{
+    direction:ltr;
+}
+
+body.en .rtl-only{
+    display:none;
+}
+
+body.ar .ltr-only{
+    display:none;
+}
+
+</style>
 </head>
 
-<body
-    class="font-cairo bg-slate-900 text-slate-100 antialiased selection:bg-eco-500 selection:text-white">
+<body class="ar grid-bg">
 
-    <!-- ================= HEADER ================= -->
+<!-- ================= NAVBAR ================= -->
 
-    <header
-        class="fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+<header id="navbar"
+class="navbar fixed top-0 left-0 right-0 z-50 border-b border-transparent">
 
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- LOGO -->
+<div class="h-20 flex items-center justify-between">
 
-            <a href="#top"
-                class="flex items-center gap-3">
+<!-- Logo -->
 
-                <img src="IMG_0931.jpeg"
-                    alt="EcoReact Logo"
-                    class="logo-img">
+<a href="#home" class="flex items-center gap-3">
 
-                <span
-                    class="text-2xl font-black tracking-wider bg-gradient-to-r from-white to-eco-400 bg-clip-text text-transparent">
-                    EcoReact
-                </span>
+<img src="IMG_0931.jpeg"
+alt="EcoReact Logo"
+class="logo-img">
 
-            </a>
+<div>
+<div class="text-xl font-black tracking-wide">
+Eco<span class="text-eco-400">React</span>
+</div>
 
+<div class="text-[9px] text-slate-500 tracking-widest">
+GREEN MATERIALS
+</div>
+</div>
 
-            <!-- DESKTOP NAV -->
+</a>
 
-            <nav
-                class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-300">
 
-                <a href="#about"
-                    class="hover:text-eco-400 transition"
-                    data-ar="نبذة عنا"
-                    data-en="About Us">
-                    نبذة عنا
-                </a>
+<!-- Desktop Navigation -->
 
-                <a href="#problem"
-                    class="hover:text-eco-400 transition"
-                    data-ar="المشكلة"
-                    data-en="The Problem">
-                    المشكلة
-                </a>
+<nav class="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-300">
 
-                <a href="#solution"
-                    class="hover:text-eco-400 transition"
-                    data-ar="الحل والتقنية"
-                    data-en="Solution">
-                    الحل والتقنية
-                </a>
+<a href="#about" data-ar="نبذة عنا" data-en="About"
+class="nav-link hover:text-eco-400 transition">نبذة عنا</a>
 
-                <a href="#process"
-                    class="hover:text-eco-400 transition"
-                    data-ar="آلية العمل"
-                    data-en="Process">
-                    آلية العمل
-                </a>
+<a href="#problem" data-ar="التحدي" data-en="Challenge"
+class="nav-link hover:text-eco-400 transition">التحدي</a>
 
-                <a href="#benefits"
-                    class="hover:text-eco-400 transition"
-                    data-ar="المزايا"
-                    data-en="Benefits">
-                    المزايا
-                </a>
+<a href="#solution" data-ar="التقنية" data-en="Technology"
+class="nav-link hover:text-eco-400 transition">التقنية</a>
 
-                <a href="#partnerships"
-                    class="hover:text-eco-400 transition"
-                    data-ar="الشراكات"
-                    data-en="Partnerships">
-                    الشراكات
-                </a>
+<a href="#process" data-ar="آلية العمل" data-en="Process"
+class="nav-link hover:text-eco-400 transition">آلية العمل</a>
 
-            </nav>
+<a href="#partnerships" data-ar="الشراكات" data-en="Partnerships"
+class="nav-link hover:text-eco-400 transition">الشراكات</a>
 
+<a href="#contact" data-ar="تواصل معنا" data-en="Contact"
+class="nav-link hover:text-eco-400 transition">تواصل معنا</a>
 
-            <!-- RIGHT SIDE -->
+</nav>
 
-            <div class="flex items-center gap-3">
 
-                <!-- LANGUAGE BUTTON -->
+<!-- Controls -->
 
-                <button id="languageBtn"
-                    onclick="toggleLanguage()"
-                    class="language-btn px-4 py-2 rounded-xl border border-eco-500/40 bg-eco-500/10 text-eco-400 font-bold text-sm">
-                    EN
-                </button>
+<div class="flex items-center gap-3">
 
+<button id="langBtn"
+class="px-3 py-2 rounded-xl border border-slate-700 hover:border-eco-500 text-sm font-bold transition">
+EN
+</button>
 
-                <!-- CONTACT -->
+<a href="#contact"
+class="hidden sm:inline-flex px-4 py-2.5 rounded-xl bg-eco-600 hover:bg-eco-500 font-bold text-sm transition shadow-lg shadow-eco-600/20"
+data-ar="كن شريكًا"
+data-en="Partner with us">
+كن شريكًا
+</a>
 
-                <a href="#contact"
-                    class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-xl bg-eco-600 hover:bg-eco-500 text-white font-bold text-sm shadow-lg shadow-eco-600/30 transition">
+<button id="menuBtn"
+class="lg:hidden w-10 h-10 rounded-xl border border-slate-700 text-slate-300">
+<i class="fa-solid fa-bars"></i>
+</button>
 
-                    <span data-ar="تواصل معنا"
-                        data-en="Contact Us">
-                        تواصل معنا
-                    </span>
+</div>
 
-                </a>
+</div>
 
 
-                <!-- MOBILE MENU -->
+<!-- Mobile Menu -->
 
-                <button id="menu-btn"
-                    class="lg:hidden text-slate-300 focus:outline-none">
+<div id="mobileMenu"
+class="hidden lg:hidden pb-5">
 
-                    <i class="fa-solid fa-bars text-2xl"></i>
+<div class="glass rounded-2xl p-4 space-y-2">
 
-                </button>
+<a href="#about" class="mobile-link block p-3 rounded-xl hover:bg-slate-800"
+data-ar="نبذة عنا" data-en="About">نبذة عنا</a>
 
-            </div>
+<a href="#problem" class="mobile-link block p-3 rounded-xl hover:bg-slate-800"
+data-ar="التحدي" data-en="Challenge">التحدي</a>
 
-        </div>
+<a href="#solution" class="mobile-link block p-3 rounded-xl hover:bg-slate-800"
+data-ar="التقنية" data-en="Technology">التقنية</a>
 
+<a href="#process" class="mobile-link block p-3 rounded-xl hover:bg-slate-800"
+data-ar="آلية العمل" data-en="Process">آلية العمل</a>
 
-        <!-- MOBILE MENU -->
+<a href="#partnerships" class="mobile-link block p-3 rounded-xl hover:bg-slate-800"
+data-ar="الشراكات" data-en="Partnerships">الشراكات</a>
 
-        <div id="mobile-menu"
-            class="hidden lg:hidden bg-slate-800 border-b border-slate-700 px-4 pt-2 pb-6 space-y-3">
+<a href="#contact" class="mobile-link block p-3 rounded-xl bg-eco-600"
+data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
 
-            <a href="#about"
-                class="block py-2 text-slate-300 hover:text-eco-400"
-                data-ar="نبذة عنا"
-                data-en="About Us">
-                نبذة عنا
-            </a>
+</div>
 
-            <a href="#problem"
-                class="block py-2 text-slate-300 hover:text-eco-400"
-                data-ar="المشكلة"
-                data-en="The Problem">
-                المشكلة
-            </a>
+</div>
 
-            <a href="#solution"
-                class="block py-2 text-slate-300 hover:text-eco-400"
-                data-ar="الحل والتقنية"
-                data-en="Solution">
-                الحل والتقنية
-            </a>
+</div>
+</header>
 
-            <a href="#process"
-                class="block py-2 text-slate-300 hover:text-eco-400"
-                data-ar="آلية العمل"
-                data-en="Process">
-                آلية العمل
-            </a>
 
-            <a href="#benefits"
-                class="block py-2 text-slate-300 hover:text-eco-400"
-                data-ar="المزايا"
-                data-en="Benefits">
-                المزايا
-            </a>
+<!-- ================= HERO ================= -->
 
-            <a href="#partnerships"
-                class="block py-2 text-slate-300 hover:text-eco-400"
-                data-ar="الشراكات"
-                data-en="Partnerships">
-                الشراكات
-            </a>
+<section id="home"
+class="relative min-h-screen flex items-center overflow-hidden pt-24">
 
-            <a href="#contact"
-                class="block text-center py-2.5 bg-eco-600 text-white rounded-xl font-bold"
-                data-ar="تواصل معنا"
-                data-en="Contact Us">
-                تواصل معنا
-            </a>
+<div class="glow glow-green w-96 h-96 -top-20 right-0"></div>
+<div class="glow glow-blue w-80 h-80 bottom-0 left-0"></div>
 
-        </div>
+<div class="particle" style="top:22%;left:12%;"></div>
+<div class="particle" style="top:35%;left:82%;animation-delay:1s;"></div>
+<div class="particle" style="top:70%;left:20%;animation-delay:2s;"></div>
+<div class="particle" style="top:60%;left:75%;animation-delay:3s;"></div>
+<div class="particle" style="top:18%;left:60%;animation-delay:4s;"></div>
 
-    </header>
 
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
-    <!-- ================= HERO ================= -->
+<div class="grid lg:grid-cols-2 gap-14 items-center">
 
-    <main id="top">
+<!-- Hero Text -->
 
-        <section
-            class="relative pt-36 pb-24 md:pt-48 md:pb-32 overflow-hidden">
+<div class="reveal">
 
-            <div
-                class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-eco-900/30 via-slate-900 to-slate-900 -z-10">
-            </div>
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-eco-500/20 text-eco-300 text-sm font-semibold mb-7">
 
+<span class="w-2 h-2 rounded-full bg-eco-400 animate-pulse"></span>
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<span data-ar="كيمياء خضراء • تقنية النانو"
+data-en="Green Chemistry • Nanotechnology">
+كيمياء خضراء • تقنية النانو
+</span>
 
-                <div
-                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-eco-900/50 border border-eco-500/30 text-eco-400 text-sm font-semibold mb-6">
+</div>
 
-                    <i class="fa-solid fa-leaf"></i>
 
-                    <span
-                        data-ar="الاقتصاد الدائري يتقاطع مع تقنية النانو"
-                        data-en="Circular Economy Meets Nanotechnology">
-                        الاقتصاد الدائري يتقاطع مع تقنية النانو
-                    </span>
+<h1 class="hero-title text-4xl sm:text-5xl lg:text-7xl font-black leading-tight mb-7">
 
-                </div>
+<span data-ar="نحوّل"
+data-en="We transform">
+نحوّل
+</span>
 
+<span class="gradient-text"
+data-ar="نفايات البلاستيك"
+data-en="plastic waste">
+نفايات البلاستيك
+</span>
 
-                <h1
-                    class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight mb-8 leading-tight">
+<br>
 
-                    <span
-                        data-ar="نحوّل نفايات البلاستيك إلى"
-                        data-en="We Transform Plastic Waste into">
-                        نحوّل نفايات البلاستيك إلى
-                    </span>
+<span data-ar="إلى قيمة صناعية"
+data-en="into industrial value">
+إلى قيمة صناعية
+</span>
 
-                    <br>
+</h1>
 
-                    <span
-                        class="bg-gradient-to-r from-eco-400 via-emerald-300 to-teal-400 bg-clip-text text-transparent"
-                        data-ar="مواد طلاء نانوية متقدمة"
-                        data-en="Advanced Nano-Coating Materials">
-                        مواد طلاء نانوية متقدمة
-                    </span>
 
-                </h1>
+<p class="text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mb-9"
+data-ar="نطوّر حلولًا مستدامة لتحويل مخلفات PET وPP إلى مواد طلاء نانوية متقدمة، لنربط بين الكيمياء الخضراء والاقتصاد الدائري."
+data-en="We develop sustainable solutions that transform PET and PP plastic waste into advanced nano-coating materials, connecting green chemistry with the circular economy.">
+نطوّر حلولًا مستدامة لتحويل مخلفات PET وPP إلى مواد طلاء نانوية متقدمة، لنربط بين الكيمياء الخضراء والاقتصاد الدائري.
+</p>
 
 
-                <p
-                    class="max-w-3xl mx-auto text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed"
-                    data-ar="نبتكر حلولاً صناعية مستدامة تعيد تدوير مخلفات البلاستيك (PET وPP) وتحويلها لطلاءات نانوية ذات أداء فائق وحماية متطورة للأسطح، مدعومة بالابتكار والاقتصاد الدائري."
-                    data-en="We create sustainable industrial solutions that transform plastic waste (PET and PP) into high-performance nano-coatings that provide advanced surface protection through innovation and circular economy principles.">
-                    نبتكر حلولاً صناعية مستدامة تعيد تدوير مخلفات البلاستيك (PET وPP) وتحويلها لطلاءات نانوية ذات أداء فائق وحماية متطورة للأسطح، مدعومة بالابتكار والاقتصاد الدائري.
-                </p>
+<div class="flex flex-col sm:flex-row gap-4">
 
+<a href="#solution"
+class="btn-primary px-7 py-4 rounded-2xl bg-eco-600 hover:bg-eco-500 font-bold text-center shadow-xl shadow-eco-600/20 transition"
+data-ar="اكتشف التقنية"
+data-en="Explore the technology">
+اكتشف التقنية
+</a>
 
-                <div
-                    class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<a href="#contact"
+class="px-7 py-4 rounded-2xl bg-slate-800/70 hover:bg-slate-700 border border-slate-700 font-bold text-center transition"
+data-ar="استثمر أو شارك معنا"
+data-en="Invest or partner">
+استثمر أو شارك معنا
+</a>
 
-                    <a href="#contact"
-                        class="w-full sm:w-auto px-8 py-4 rounded-xl bg-eco-600 hover:bg-eco-500 text-white font-bold text-lg shadow-xl shadow-eco-600/30 transition transform hover:-translate-y-1"
-                        data-ar="انضم كمستثمر أو شريك"
-                        data-en="Become an Investor or Partner">
-                        انضم كمستثمر أو شريك
-                    </a>
+</div>
 
+</div>
 
-                    <a href="#solution"
-                        class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-lg border border-slate-700 transition"
-                        data-ar="اكتشف التقنية"
-                        data-en="Discover Our Technology">
-                        اكتشف التقنية
-                    </a>
 
-                </div>
+<!-- Hero Visual -->
 
-            </div>
+<div class="relative min-h-[450px] flex items-center justify-center reveal">
 
-        </section>
+<div class="hero-orb absolute"></div>
 
+<div class="relative z-10 w-64 h-64 sm:w-80 sm:h-80 rounded-full glass flex items-center justify-center">
 
-        <!-- ================= ABOUT ================= -->
+<div class="absolute inset-7 rounded-full border border-eco-400/20 animate-pulse"></div>
 
-        <section id="about"
-            class="py-20 bg-slate-900/50 border-t border-slate-800">
+<div class="text-center">
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-6xl mb-3">
+🧪
+</div>
 
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="text-3xl font-black gradient-text">
+PET → NANO
+</div>
 
-                    <div>
+<div class="text-sm text-slate-400 mt-2"
+data-ar="من النفايات إلى الابتكار"
+data-en="From waste to innovation">
+من النفايات إلى الابتكار
+</div>
 
-                        <span
-                            class="text-eco-400 font-bold text-sm"
-                            data-ar="من نحن"
-                            data-en="ABOUT US">
-                            من نحن
-                        </span>
+</div>
 
+</div>
 
-                        <h2
-                            class="text-3xl sm:text-4xl font-black mt-2 mb-6"
-                            data-ar="نبتكر مستقبل المواد المستدامة من قلب النفايات"
-                            data-en="Creating the Future of Sustainable Materials from Waste">
-                            نبتكر مستقبل المواد المستدامة من قلب النفايات
-                        </h2>
 
+<!-- Floating cards -->
 
-                        <p
-                            class="text-slate-300 text-lg leading-relaxed mb-6"
-                            data-ar="شركة EcoReact هي شركة ناشئة متخصصة في الكيمياء الخضراء وتكنولوجيا النانو. نؤمن بأن ما يُعتبر نفايات اليوم هو المادة الخام لثورة التصنيع القادمة. نركز بشكل أساسي على معالجة بوليمرات البولي إيثيلين تيرفثالات (PET) والبولي بروبيلين (PP) لتحويلها عبر عمليات كيميائية دقيقة إلى طلاءات نانوية فائقة الأداء."
-                            data-en="EcoReact is a startup specializing in green chemistry and nanotechnology. We believe that today's waste can become the raw material for tomorrow's industrial revolution. We focus on transforming PET and PP polymers through advanced chemical processes into high-performance nano-coatings.">
-                            شركة EcoReact هي شركة ناشئة متخصصة في الكيمياء الخضراء وتكنولوجيا النانو. نؤمن بأن ما يُعتبر نفايات اليوم هو المادة الخام لثورة التصنيع القادمة. نركز بشكل أساسي على معالجة بوليمرات البولي إيثيلين تيرفثالات (PET) والبولي بروبيلين (PP) لتحويلها عبر عمليات كيميائية دقيقة إلى طلاءات نانوية فائقة الأداء.
-                        </p>
+<div class="absolute top-10 right-0 sm:right-5 glass px-5 py-4 rounded-2xl border border-eco-500/20 shadow-xl">
 
+<div class="text-eco-400 text-2xl">
+<i class="fa-solid fa-recycle"></i>
+</div>
 
-                        <div
-                            class="grid grid-cols-2 gap-6 pt-4 border-t border-slate-800">
+<div class="text-xs text-slate-400 mt-1"
+data-ar="اقتصاد دائري"
+data-en="Circular economy">
+اقتصاد دائري
+</div>
 
-                            <div>
+</div>
 
-                                <h3
-                                    class="text-3xl font-black text-eco-400 mb-1">
-                                    100%
-                                </h3>
 
-                                <p
-                                    class="text-sm text-slate-400"
-                                    data-ar="اعتماد على الاقتصاد الدائري"
-                                    data-en="Circular Economy Focus">
-                                    اعتماد على الاقتصاد الدائري
-                                </p>
+<div class="absolute bottom-10 left-0 sm:left-5 glass px-5 py-4 rounded-2xl border border-teal-500/20 shadow-xl">
 
-                            </div>
+<div class="text-teal-400 text-2xl">
+<i class="fa-solid fa-atom"></i>
+</div>
 
+<div class="text-xs text-slate-400 mt-1"
+data-ar="تقنية النانو"
+data-en="Nanotechnology">
+تقنية النانو
+</div>
 
-                            <div>
+</div>
 
-                                <h3
-                                    class="text-3xl font-black text-eco-400 mb-1">
-                                    PET & PP
-                                </h3>
+</div>
 
-                                <p
-                                    class="text-sm text-slate-400"
-                                    data-ar="البوليمرات المستهدفة"
-                                    data-en="Target Polymers">
-                                    البوليمرات المستهدفة
-                                </p>
+</div>
 
-                            </div>
+</div>
 
-                        </div>
+</section>
 
-                    </div>
 
+<!-- ================= STATS ================= -->
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-slate-700 relative shadow-2xl">
+<section class="py-12 border-y border-slate-800 bg-slate-950/50">
 
-                        <div
-                            class="absolute -top-4 -right-4 w-24 h-24 bg-eco-500/10 rounded-full blur-xl">
-                        </div>
+<div class="max-w-6xl mx-auto px-4">
 
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 
-                        <h3
-                            class="text-2xl font-bold mb-4 text-white flex items-center gap-3">
+<div class="reveal">
+<div class="counter text-4xl font-black text-eco-400" data-target="2">0</div>
+<div class="text-sm text-slate-400 mt-2">Polymers</div>
+<div class="text-xs text-slate-500">PET & PP</div>
+</div>
 
-                            <i
-                                class="fa-solid fa-bullseye text-eco-400"></i>
+<div class="reveal">
+<div class="counter text-4xl font-black text-eco-400" data-target="4">0</div>
+<div class="text-sm text-slate-400 mt-2"
+data-ar="مراحل الإنتاج"
+data-en="Production stages">
+مراحل الإنتاج
+</div>
+</div>
 
-                            <span
-                                data-ar="رؤيتنا ورسالتنا"
-                                data-en="Our Vision & Mission">
-                                رؤيتنا ورسالتنا
-                            </span>
+<div class="reveal">
+<div class="counter text-4xl font-black text-eco-400" data-target="100">0</div>
+<div class="text-sm text-slate-400 mt-2">%</div>
+<div class="text-xs text-slate-500"
+data-ar="اقتصاد دائري"
+data-en="Circular economy">
+اقتصاد دائري
+</div>
+</div>
 
-                        </h3>
+<div class="reveal">
+<div class="counter text-4xl font-black text-eco-400" data-target="3">0</div>
+<div class="text-sm text-slate-400 mt-2"
+data-ar="قطاعات مستهدفة"
+data-en="Target sectors">
+قطاعات مستهدفة
+</div>
+</div>
 
+</div>
 
-                        <p
-                            class="text-slate-300 leading-relaxed mb-6"
-                            data-ar="نسعى للقضاء على التلوث البلاستيكي من خلال إيجاد تطبيقات صناعية ذات قيمة اقتصادية عالية تلبي احتياجات قطاعات البناء والسيارات والصناعات البحرية."
-                            data-en="We aim to reduce plastic pollution by creating high-value industrial applications that serve the construction, automotive, and marine sectors.">
-                            نسعى للقضاء على التلوث البلاستيكي من خلال إيجاد تطبيقات صناعية ذات قيمة اقتصادية عالية تلبي احتياجات قطاعات البناء والسيارات والصناعات البحرية.
-                        </p>
+</div>
 
+</section>
 
-                        <ul class="space-y-3 text-slate-300">
 
-                            <li class="flex items-center gap-3">
+<!-- ================= ABOUT ================= -->
 
-                                <i
-                                    class="fa-solid fa-check-circle text-eco-400"></i>
+<section id="about" class="py-24">
 
-                                <span
-                                    data-ar="خفض البصمة الكربونية للقطاع الصناعي"
-                                    data-en="Reducing the industrial carbon footprint">
-                                    خفض البصمة الكربونية للقطاع الصناعي
-                                </span>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                            </li>
+<div class="grid lg:grid-cols-2 gap-14 items-center">
 
+<div class="reveal">
 
-                            <li class="flex items-center gap-3">
+<div class="text-eco-400 font-bold text-sm mb-3">
+01 / ABOUT
+</div>
 
-                                <i
-                                    class="fa-solid fa-check-circle text-eco-400"></i>
+<h2 class="text-3xl sm:text-5xl font-black mb-6"
+data-ar="نبتكر مستقبل المواد المستدامة"
+data-en="Engineering the future of sustainable materials">
+نبتكر مستقبل المواد المستدامة
+</h2>
 
-                                <span
-                                    data-ar="توفير مواد طلاء بخصائص متقدمة"
-                                    data-en="Providing advanced coating materials">
-                                    توفير مواد طلاء بخصائص متقدمة
-                                </span>
+<p class="text-slate-300 leading-relaxed text-lg"
+data-ar="EcoReact مشروع ناشئ يجمع بين الكيمياء الخضراء وتقنية النانو والاقتصاد الدائري، بهدف تحويل البلاستيك المستهلك إلى مواد ذات قيمة صناعية عالية."
+data-en="EcoReact is a startup project combining green chemistry, nanotechnology and the circular economy to transform post-consumer plastics into high-value industrial materials.">
+EcoReact مشروع ناشئ يجمع بين الكيمياء الخضراء وتقنية النانو والاقتصاد الدائري، بهدف تحويل البلاستيك المستهلك إلى مواد ذات قيمة صناعية عالية.
+</p>
 
-                            </li>
+</div>
 
 
-                            <li class="flex items-center gap-3">
+<div class="glass rounded-3xl p-8 reveal">
 
-                                <i
-                                    class="fa-solid fa-check-circle text-eco-400"></i>
+<div class="flex items-start gap-5 mb-7">
 
-                                <span
-                                    data-ar="دعم أهداف التنمية المستدامة"
-                                    data-en="Supporting sustainable development goals">
-                                    دعم أهداف التنمية المستدامة
-                                </span>
+<div class="w-14 h-14 rounded-2xl bg-eco-500/10 text-eco-400 flex items-center justify-center text-2xl">
+<i class="fa-solid fa-bullseye"></i>
+</div>
 
-                            </li>
+<div>
 
-                        </ul>
+<h3 class="text-xl font-bold mb-2"
+data-ar="رؤيتنا"
+data-en="Our Vision">
+رؤيتنا
+</h3>
 
-                    </div>
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="بناء مستقبل صناعي أكثر استدامة من خلال إعادة تعريف قيمة النفايات."
+data-en="Building a more sustainable industrial future by redefining the value of waste.">
+بناء مستقبل صناعي أكثر استدامة من خلال إعادة تعريف قيمة النفايات.
+</p>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </section>
 
+<div class="flex items-start gap-5">
 
-        <!-- ================= PROBLEM ================= -->
+<div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-2xl">
+<i class="fa-solid fa-leaf"></i>
+</div>
 
-        <section id="problem" class="py-20">
+<div>
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h3 class="text-xl font-bold mb-2"
+data-ar="رسالتنا"
+data-en="Our Mission">
+رسالتنا
+</h3>
 
-                <div
-                    class="text-center max-w-3xl mx-auto mb-16">
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="تطوير حلول كيميائية مبتكرة تقلل الأثر البيئي وتخلق قيمة اقتصادية."
+data-en="Developing innovative chemical solutions that reduce environmental impact while creating economic value.">
+تطوير حلول كيميائية مبتكرة تقلل الأثر البيئي وتخلق قيمة اقتصادية.
+</p>
 
-                    <span
-                        class="text-eco-400 font-bold text-sm"
-                        data-ar="التحدي العالمي"
-                        data-en="THE GLOBAL CHALLENGE">
-                        التحدي العالمي
-                    </span>
+</div>
 
+</div>
 
-                    <h2
-                        class="text-3xl sm:text-4xl font-black mt-2 mb-4"
-                        data-ar="أزمة البلاستيك وتحديات الطلاء التقليدي"
-                        data-en="Plastic Waste & Traditional Coating Challenges">
-                        أزمة البلاستيك وتحديات الطلاء التقليدي
-                    </h2>
+</div>
 
+</div>
 
-                    <p
-                        class="text-slate-300"
-                        data-ar="نواجه تحديين ضخمين في السوق الصناعي والبيئي الحالي."
-                        data-en="We address two major challenges facing today's environmental and industrial markets.">
-                        نواجه تحديين ضخمين في السوق الصناعي والبيئي الحالي.
-                    </p>
+</div>
 
-                </div>
+</section>
 
 
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- ================= PROBLEM ================= -->
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-red-500/20 hover:border-red-500/40 transition">
+<section id="problem" class="py-24 bg-slate-900/40 border-y border-slate-800">
 
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-2xl mb-6">
+<div class="max-w-7xl mx-auto px-4">
 
-                            <i
-                                class="fa-solid fa-triangle-exclamation"></i>
+<div class="text-center max-w-3xl mx-auto mb-14 reveal">
 
-                        </div>
+<div class="text-eco-400 font-bold text-sm mb-3">
+02 / CHALLENGE
+</div>
 
+<h2 class="text-3xl sm:text-5xl font-black mb-5"
+data-ar="مشكلة تستحق حلًا"
+data-en="A problem worth solving">
+مشكلة تستحق حلًا
+</h2>
 
-                        <h3
-                            class="text-2xl font-bold mb-3 text-white"
-                            data-ar="تراكم نفايات البلاستيك"
-                            data-en="Plastic Waste Accumulation">
-                            تراكم نفايات البلاستيك
-                        </h3>
+<p class="text-slate-400"
+data-ar="نواجه تحديًا بيئيًا وصناعيًا في الوقت نفسه."
+data-en="We are addressing an environmental and industrial challenge at the same time.">
+نواجه تحديًا بيئيًا وصناعيًا في الوقت نفسه.
+</p>
 
+</div>
 
-                        <p
-                            class="text-slate-300 leading-relaxed"
-                            data-ar="تتراكم كميات ضخمة من عبوات PET وأغلفة PP في المكبات والبيئة، مما يسبب آثاراً بيئية طويلة المدى."
-                            data-en="Large amounts of PET bottles and PP packaging accumulate in landfills and the environment, creating long-term environmental impacts.">
-                            تتراكم كميات ضخمة من عبوات PET وأغلفة PP في المكبات والبيئة، مما يسبب آثاراً بيئية طويلة المدى.
-                        </p>
 
-                    </div>
+<div class="grid md:grid-cols-2 gap-7">
 
+<div class="card glass rounded-3xl p-8 reveal">
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-amber-500/20 hover:border-amber-500/40 transition">
+<div class="w-16 h-16 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-2xl mb-6">
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
 
-                        <div
-                            class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6">
+<h3 class="text-2xl font-bold mb-4"
+data-ar="تراكم النفايات البلاستيكية"
+data-en="Plastic waste accumulation">
+تراكم النفايات البلاستيكية
+</h3>
 
-                            <i
-                                class="fa-solid fa-industry"></i>
+<p class="text-slate-400 leading-relaxed"
+data-ar="البلاستيك المستهلك يمثل تحديًا بيئيًا ضخمًا، خصوصًا مع محدودية الحلول التي تمنحه قيمة صناعية جديدة."
+data-en="Post-consumer plastic creates a major environmental challenge, especially when limited recycling pathways fail to create new industrial value.">
+البلاستيك المستهلك يمثل تحديًا بيئيًا ضخمًا، خصوصًا مع محدودية الحلول التي تمنحه قيمة صناعية جديدة.
+</p>
 
-                        </div>
+</div>
 
 
-                        <h3
-                            class="text-2xl font-bold mb-3 text-white"
-                            data-ar="تحديات الطلاءات التقليدية"
-                            data-en="Traditional Coating Challenges">
-                            تحديات الطلاءات التقليدية
-                        </h3>
+<div class="card glass rounded-3xl p-8 reveal">
 
+<div class="w-16 h-16 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6">
+<i class="fa-solid fa-industry"></i>
+</div>
 
-                        <p
-                            class="text-slate-300 leading-relaxed"
-                            data-ar="تعتمد العديد من الطلاءات الصناعية على مواد بكر وعمليات قد تكون ذات تكلفة وأثر بيئي مرتفع."
-                            data-en="Many industrial coatings rely on virgin materials and processes that can involve high costs and environmental impacts.">
-                            تعتمد العديد من الطلاءات الصناعية على مواد بكر وعمليات قد تكون ذات تكلفة وأثر بيئي مرتفع.
-                        </p>
+<h3 class="text-2xl font-bold mb-4"
+data-ar="الحاجة إلى مواد طلاء أكثر استدامة"
+data-en="The need for more sustainable coatings">
+الحاجة إلى مواد طلاء أكثر استدامة
+</h3>
 
-                    </div>
+<p class="text-slate-400 leading-relaxed"
+data-ar="القطاع الصناعي يحتاج إلى مواد ذات أداء عالٍ مع تقليل الاعتماد على المواد الخام البكر والأثر البيئي."
+data-en="Industry needs high-performance materials while reducing reliance on virgin feedstocks and environmental impact.">
+القطاع الصناعي يحتاج إلى مواد ذات أداء عالٍ مع تقليل الاعتماد على المواد الخام البكر والأثر البيئي.
+</p>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </section>
+</div>
 
+</section>
 
-        <!-- ================= SOLUTION ================= -->
 
-        <section id="solution"
-            class="py-20 bg-slate-900/50 border-t border-slate-800">
+<!-- ================= SOLUTION ================= -->
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="solution" class="py-24">
 
-                <div
-                    class="text-center max-w-3xl mx-auto mb-16">
+<div class="max-w-7xl mx-auto px-4">
 
-                    <span
-                        class="text-eco-400 font-bold text-sm"
-                        data-ar="الابتكار التقني"
-                        data-en="TECHNOLOGY">
-                        الابتكار التقني
-                    </span>
+<div class="text-center max-w-3xl mx-auto mb-14 reveal">
 
+<div class="text-eco-400 font-bold text-sm mb-3">
+03 / TECHNOLOGY
+</div>
 
-                    <h2
-                        class="text-3xl sm:text-4xl font-black mt-2 mb-4"
-                        data-ar="الحل الهندسي والتقني من EcoReact"
-                        data-en="EcoReact's Technical Solution">
-                        الحل الهندسي والتقني من EcoReact
-                    </h2>
+<h2 class="text-3xl sm:text-5xl font-black mb-5"
+data-ar="الحل: إعادة تعريف قيمة البلاستيك"
+data-en="The solution: redefining plastic value">
+الحل: إعادة تعريف قيمة البلاستيك
+</h2>
 
+<p class="text-slate-400"
+data-ar="نحوّل البوليمرات المستهلكة إلى مواد طلاء ذات خصائص متقدمة."
+data-en="We transform post-consumer polymers into coatings with advanced properties.">
+نحوّل البوليمرات المستهلكة إلى مواد طلاء ذات خصائص متقدمة.
+</p>
 
-                    <p
-                        class="text-slate-300"
-                        data-ar="تحويل المواد البلاستيكية إلى حلول طلاء متقدمة."
-                        data-en="Transforming plastic materials into advanced coating solutions.">
-                        تحويل المواد البلاستيكية إلى حلول طلاء متقدمة.
-                    </p>
+</div>
 
-                </div>
 
+<div class="grid md:grid-cols-3 gap-7">
 
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="card glass rounded-3xl p-8 reveal">
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+<div class="text-eco-400 text-4xl mb-6">
+<i class="fa-solid fa-dna"></i>
+</div>
 
-                        <div
-                            class="text-eco-400 text-3xl font-black mb-4">
-                            01
-                        </div>
+<div class="text-xs text-eco-400 font-bold mb-2">01</div>
 
-                        <h3
-                            class="text-xl font-bold mb-3 text-white"
-                            data-ar="الهندسة الجزيئية"
-                            data-en="Molecular Engineering">
-                            الهندسة الجزيئية
-                        </h3>
+<h3 class="text-xl font-bold mb-3"
+data-ar="الهندسة الجزيئية"
+data-en="Molecular Engineering">
+الهندسة الجزيئية
+</h3>
 
-                        <p
-                            class="text-slate-300 text-sm leading-relaxed"
-                            data-ar="معالجة البوليمرات المستهلكة وإعادة هندستها لتطوير خصائص مناسبة لتطبيقات الطلاء."
-                            data-en="Processing and engineering recycled polymers to develop properties suitable for coating applications.">
-                            معالجة البوليمرات المستهلكة وإعادة هندستها لتطوير خصائص مناسبة لتطبيقات الطلاء.
-                        </p>
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="معالجة البوليمرات المستهلكة وإعادة توظيفها ضمن تركيبات ذات قيمة مضافة."
+data-en="Processing post-consumer polymers and repurposing them into value-added formulations.">
+معالجة البوليمرات المستهلكة وإعادة توظيفها ضمن تركيبات ذات قيمة مضافة.
+</p>
 
-                    </div>
+</div>
 
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+<div class="card glass rounded-3xl p-8 reveal">
 
-                        <div
-                            class="text-eco-400 text-3xl font-black mb-4">
-                            02
-                        </div>
+<div class="text-teal-400 text-4xl mb-6">
+<i class="fa-solid fa-atom"></i>
+</div>
 
-                        <h3
-                            class="text-xl font-bold mb-3 text-white"
-                            data-ar="خصائص متقدمة"
-                            data-en="Advanced Properties">
-                            خصائص متقدمة
-                        </h3>
+<div class="text-xs text-teal-400 font-bold mb-2">02</div>
 
-                        <p
-                            class="text-slate-300 text-sm leading-relaxed"
-                            data-ar="تطوير طلاءات ذات مقاومة محسنة للتآكل والرطوبة والأشعة فوق البنفسجية والخدوش."
-                            data-en="Developing coatings with enhanced resistance to corrosion, moisture, UV radiation, and scratches.">
-                            تطوير طلاءات ذات مقاومة محسنة للتآكل والرطوبة والأشعة فوق البنفسجية والخدوش.
-                        </p>
+<h3 class="text-xl font-bold mb-3"
+data-ar="تقنية النانو"
+data-en="Nanotechnology">
+تقنية النانو
+</h3>
 
-                    </div>
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="تطوير تركيبات نانوية تساعد على تحسين الأداء الوظيفي للطلاء."
+data-en="Developing nano-formulations designed to enhance coating functionality and performance.">
+تطوير تركيبات نانوية تساعد على تحسين الأداء الوظيفي للطلاء.
+</p>
 
+</div>
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-slate-700">
 
-                        <div
-                            class="text-eco-400 text-3xl font-black mb-4">
-                            03
-                        </div>
+<div class="card glass rounded-3xl p-8 reveal">
 
-                        <h3
-                            class="text-xl font-bold mb-3 text-white"
-                            data-ar="حلول أكثر استدامة"
-                            data-en="More Sustainable Solutions">
-                            حلول أكثر استدامة
-                        </h3>
+<div class="text-cyan-400 text-4xl mb-6">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
 
-                        <p
-                            class="text-slate-300 text-sm leading-relaxed"
-                            data-ar="الاستفادة من البلاستيك المعاد تدويره كمادة أولية ضمن نموذج الاقتصاد الدائري."
-                            data-en="Using recycled plastic as a raw material within a circular economy model.">
-                            الاستفادة من البلاستيك المعاد تدويره كمادة أولية ضمن نموذج الاقتصاد الدائري.
-                        </p>
+<div class="text-xs text-cyan-400 font-bold mb-2">03</div>
 
-                    </div>
+<h3 class="text-xl font-bold mb-3"
+data-ar="أداء متقدم"
+data-en="Advanced Performance">
+أداء متقدم
+</h3>
 
-                </div>
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="استهداف خصائص مثل مقاومة التآكل والرطوبة والخدوش وفق التركيبة والتطبيق."
+data-en="Targeting properties such as corrosion, moisture and scratch resistance depending on formulation and application.">
+استهداف خصائص مثل مقاومة التآكل والرطوبة والخدوش وفق التركيبة والتطبيق.
+</p>
 
-            </div>
+</div>
 
-        </section>
+</div>
 
+</div>
 
-        <!-- ================= PROCESS ================= -->
+</section>
 
-        <section id="process" class="py-20">
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- ================= PROCESS ================= -->
 
-                <div
-                    class="text-center max-w-3xl mx-auto mb-16">
+<section id="process" class="py-24 bg-slate-900/40 border-y border-slate-800">
 
-                    <span
-                        class="text-eco-400 font-bold text-sm"
-                        data-ar="دورة الإنتاج"
-                        data-en="PRODUCTION CYCLE">
-                        دورة الإنتاج
-                    </span>
+<div class="max-w-7xl mx-auto px-4">
 
+<div class="text-center mb-16 reveal">
 
-                    <h2
-                        class="text-3xl sm:text-4xl font-black mt-2 mb-4"
-                        data-ar="كيف نحول البلاستيك إلى طلاء؟"
-                        data-en="How Do We Transform Plastic into Coatings?">
-                        كيف نحول البلاستيك إلى طلاء؟
-                    </h2>
+<div class="text-eco-400 font-bold text-sm mb-3">
+04 / PROCESS
+</div>
 
-                </div>
+<h2 class="text-3xl sm:text-5xl font-black mb-5"
+data-ar="من البلاستيك إلى الطلاء"
+data-en="From plastic to coating">
+من البلاستيك إلى الطلاء
+</h2>
 
+<p class="text-slate-400"
+data-ar="رحلة تحويلية من أربع مراحل."
+data-en="A four-stage transformation journey.">
+رحلة تحويلية من أربع مراحل.
+</p>
 
-                <div
-                    class="grid grid-cols-1 md:grid-cols-4 gap-6">
+</div>
 
-                    <div
-                        class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
 
-                        <div
-                            class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-                            1
-                        </div>
+<div class="relative">
 
-                        <h3
-                            class="font-bold text-lg mb-2 text-white"
-                            data-ar="الجمع والفرز"
-                            data-en="Collection & Sorting">
-                            الجمع والفرز
-                        </h3>
+<div class="process-line"></div>
 
-                        <p
-                            class="text-slate-400 text-xs"
-                            data-ar="تجميع نفايات PET وPP وفرزها وتنظيفها."
-                            data-en="Collecting, sorting, and cleaning PET and PP waste.">
-                            تجميع نفايات PET وPP وفرزها وتنظيفها.
-                        </p>
+<div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7 relative">
 
-                    </div>
+<!-- 1 -->
 
+<div class="process-card card glass rounded-3xl p-7 text-center reveal">
 
-                    <div
-                        class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
+<div class="process-number w-16 h-16 rounded-full bg-eco-500/10 border border-eco-500/20 text-eco-400 flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+1
+</div>
 
-                        <div
-                            class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-                            2
-                        </div>
+<h3 class="font-bold text-lg mb-3"
+data-ar="الجمع والفرز"
+data-en="Collection & sorting">
+الجمع والفرز
+</h3>
 
-                        <h3
-                            class="font-bold text-lg mb-2 text-white"
-                            data-ar="المعالجة"
-                            data-en="Processing">
-                            المعالجة
-                        </h3>
+<p class="text-slate-400 text-sm"
+data-ar="تجميع PET وPP وفرزها وتنظيفها."
+data-en="Collecting, sorting and cleaning PET and PP.">
+تجميع PET وPP وفرزها وتنظيفها.
+</p>
 
-                        <p
-                            class="text-slate-400 text-xs"
-                            data-ar="إخضاع البوليمرات لعمليات معالجة مناسبة."
-                            data-en="Subjecting polymers to appropriate processing steps.">
-                            إخضاع البوليمرات لعمليات معالجة مناسبة.
-                        </p>
+</div>
 
-                    </div>
 
+<!-- 2 -->
 
-                    <div
-                        class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
+<div class="process-card card glass rounded-3xl p-7 text-center reveal">
 
-                        <div
-                            class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-                            3
-                        </div>
+<div class="process-number w-16 h-16 rounded-full bg-eco-500/10 border border-eco-500/20 text-eco-400 flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+2
+</div>
 
-                        <h3
-                            class="font-bold text-lg mb-2 text-white"
-                            data-ar="صياغة الطلاء"
-                            data-en="Coating Formulation">
-                            صياغة الطلاء
-                        </h3>
+<h3 class="font-bold text-lg mb-3"
+data-ar="المعالجة"
+data-en="Processing">
+المعالجة
+</h3>
 
-                        <p
-                            class="text-slate-400 text-xs"
-                            data-ar="تطوير تركيبة طلاء مستقرة ومتجانسة."
-                            data-en="Developing a stable and homogeneous coating formulation.">
-                            تطوير تركيبة طلاء مستقرة ومتجانسة.
-                        </p>
+<p class="text-slate-400 text-sm"
+data-ar="إجراء المعالجة الكيميائية المناسبة."
+data-en="Applying the appropriate chemical processing.">
+إجراء المعالجة الكيميائية المناسبة.
+</p>
 
-                    </div>
+</div>
 
 
-                    <div
-                        class="bg-tech-card p-6 rounded-2xl border border-slate-700 text-center">
+<!-- 3 -->
 
-                        <div
-                            class="w-12 h-12 bg-eco-600/20 text-eco-400 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-xl">
-                            4
-                        </div>
+<div class="process-card card glass rounded-3xl p-7 text-center reveal">
 
-                        <h3
-                            class="font-bold text-lg mb-2 text-white"
-                            data-ar="المنتج النهائي"
-                            data-en="Final Product">
-                            المنتج النهائي
-                        </h3>
+<div class="process-number w-16 h-16 rounded-full bg-eco-500/10 border border-eco-500/20 text-eco-400 flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+3
+</div>
 
-                        <p
-                            class="text-slate-400 text-xs"
-                            data-ar="إنتاج طلاء جاهز للتطبيقات الصناعية."
-                            data-en="Producing a coating ready for industrial applications.">
-                            إنتاج طلاء جاهز للتطبيقات الصناعية.
-                        </p>
+<h3 class="font-bold text-lg mb-3"
+data-ar="صياغة النانو"
+data-en="Nano formulation">
+صياغة النانو
+</h3>
 
-                    </div>
+<p class="text-slate-400 text-sm"
+data-ar="تطوير تركيبة نانوية مستقرة ومتجانسة."
+data-en="Developing a stable and homogeneous nano formulation.">
+تطوير تركيبة نانوية مستقرة ومتجانسة.
+</p>
 
-                </div>
+</div>
 
-            </div>
 
-        </section>
+<!-- 4 -->
 
+<div class="process-card card glass rounded-3xl p-7 text-center reveal">
 
-        <!-- ================= BENEFITS ================= -->
+<div class="process-number w-16 h-16 rounded-full bg-eco-500/10 border border-eco-500/20 text-eco-400 flex items-center justify-center mx-auto mb-6 text-2xl font-black">
+4
+</div>
 
-        <section id="benefits"
-            class="py-20 bg-slate-900/50 border-t border-slate-800">
+<h3 class="font-bold text-lg mb-3"
+data-ar="الطلاء النهائي"
+data-en="Final coating">
+الطلاء النهائي
+</h3>
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<p class="text-slate-400 text-sm"
+data-ar="اختبار وتجهيز المنتج للتطبيق الصناعي."
+data-en="Testing and preparing the product for industrial application.">
+اختبار وتجهيز المنتج للتطبيق الصناعي.
+</p>
 
-                <div
-                    class="text-center max-w-3xl mx-auto mb-16">
+</div>
 
-                    <span
-                        class="text-eco-400 font-bold text-sm"
-                        data-ar="القيمة التنافسية"
-                        data-en="COMPETITIVE VALUE">
-                        القيمة التنافسية
-                    </span>
+</div>
 
+</div>
 
-                    <h2
-                        class="text-3xl sm:text-4xl font-black mt-2 mb-4"
-                        data-ar="لماذا تختار EcoReact؟"
-                        data-en="Why Choose EcoReact?">
-                        لماذا تختار EcoReact؟
-                    </h2>
+</div>
 
-                </div>
+</section>
 
 
-                <div
-                    class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- ================= BENEFITS ================= -->
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+<section class="py-24">
 
-                        <i
-                            class="fa-solid fa-shield-halved text-eco-400 text-3xl mb-4"></i>
+<div class="max-w-7xl mx-auto px-4">
 
-                        <h3
-                            class="text-xl font-bold mb-2 text-white"
-                            data-ar="حماية متقدمة"
-                            data-en="Advanced Protection">
-                            حماية متقدمة
-                        </h3>
+<div class="text-center mb-14 reveal">
 
-                        <p
-                            class="text-slate-300 text-sm"
-                            data-ar="مقاومة محسنة لعوامل التعرية والخدوش والتأثيرات الكيميائية."
-                            data-en="Enhanced resistance to weathering, scratches, and chemical effects.">
-                            مقاومة محسنة لعوامل التعرية والخدوش والتأثيرات الكيميائية.
-                        </p>
+<div class="text-eco-400 font-bold text-sm mb-3">
+05 / VALUE
+</div>
 
-                    </div>
+<h2 class="text-3xl sm:text-5xl font-black"
+data-ar="القيمة التي نصنعها"
+data-en="The value we create">
+القيمة التي نصنعها
+</h2>
 
+</div>
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-slate-700">
 
-                        <i
-                            class="fa-solid fa-hand-holding-dollar text-eco-400 text-3xl mb-4"></i>
+<div class="grid md:grid-cols-3 gap-7">
 
-                        <h3
-                            class="text-xl font-bold mb-2 text-white"
-                            data-ar="كفاءة اقتصادية"
-                            data-en="Economic Efficiency">
-                            كفاءة اقتصادية
-                        </h3>
+<div class="card glass rounded-3xl p-8 reveal">
 
-                        <p
-                            class="text-slate-300 text-sm"
-                            data-ar="الاستفادة من النفايات كمادة أولية ضمن نموذج إنتاج دائري."
-                            data-en="Utilizing waste as a raw material within a circular production model.">
-                            الاستفادة من النفايات كمادة أولية ضمن نموذج إنتاج دائري.
-                        </p>
+<i class="fa-solid fa-shield-halved text-eco-400 text-4xl mb-6"></i>
 
-                    </div>
+<h3 class="text-xl font-bold mb-3"
+data-ar="حماية متقدمة"
+data-en="Advanced protection">
+حماية متقدمة
+</h3>
 
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="استهداف خصائص حماية متعددة للأسطح بحسب الاستخدام."
+data-en="Targeting multiple protective properties depending on the application.">
+استهداف خصائص حماية متعددة للأسطح بحسب الاستخدام.
+</p>
 
-                    <div
-                        class="bg-tech-card p-8 rounded-3xl border border-slate-700">
+</div>
 
-                        <i
-                            class="fa-solid fa-globe text-eco-400 text-3xl mb-4"></i>
 
-                        <h3
-                            class="text-xl font-bold mb-2 text-white"
-                            data-ar="أثر بيئي إيجابي"
-                            data-en="Positive Environmental Impact">
-                            أثر بيئي إيجابي
-                        </h3>
+<div class="card glass rounded-3xl p-8 reveal">
 
-                        <p
-                            class="text-slate-300 text-sm"
-                            data-ar="تحويل النفايات البلاستيكية إلى قيمة صناعية وتقليل الاعتماد على المواد الخام البكر."
-                            data-en="Turning plastic waste into industrial value while reducing reliance on virgin materials.">
-                            تحويل النفايات البلاستيكية إلى قيمة صناعية وتقليل الاعتماد على المواد الخام البكر.
-                        </p>
+<i class="fa-solid fa-chart-line text-eco-400 text-4xl mb-6"></i>
 
-                    </div>
+<h3 class="text-xl font-bold mb-3"
+data-ar="قيمة اقتصادية"
+data-en="Economic value">
+قيمة اقتصادية
+</h3>
 
-                </div>
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="تحويل مادة منخفضة القيمة إلى منتج صناعي ذي قيمة مضافة."
+data-en="Turning a low-value material into an industrial product with added value.">
+تحويل مادة منخفضة القيمة إلى منتج صناعي ذي قيمة مضافة.
+</p>
 
-            </div>
+</div>
 
-        </section>
 
+<div class="card glass rounded-3xl p-8 reveal">
 
-        <!-- ================= PARTNERSHIPS ================= -->
+<i class="fa-solid fa-earth-americas text-eco-400 text-4xl mb-6"></i>
 
-        <section id="partnerships" class="py-20">
+<h3 class="text-xl font-bold mb-3"
+data-ar="أثر بيئي"
+data-en="Environmental impact">
+أثر بيئي
+</h3>
 
-            <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<p class="text-slate-400 text-sm leading-relaxed"
+data-ar="دعم الاقتصاد الدائري وتقليل هدر الموارد."
+data-en="Supporting the circular economy and reducing resource waste.">
+دعم الاقتصاد الدائري وتقليل هدر الموارد.
+</p>
 
-                <div
-                    class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+</div>
 
-                    <div>
+</div>
 
-                        <span
-                            class="text-eco-400 font-bold text-sm"
-                            data-ar="العملاء والشركاء"
-                            data-en="CLIENTS & PARTNERS">
-                            العملاء والشركاء
-                        </span>
+</div>
 
+</section>
 
-                        <h2
-                            class="text-3xl sm:text-4xl font-black mt-2 mb-6"
-                            data-ar="الفئات المستهدفة وفرص الشراكة"
-                            data-en="Target Sectors & Partnership Opportunities">
-                            الفئات المستهدفة وفرص الشراكة
-                        </h2>
 
+<!-- ================= PARTNERSHIPS ================= -->
 
-                        <p
-                            class="text-slate-300 mb-6 leading-relaxed"
-                            data-ar="نستهدف الشركات والمؤسسات التي تبحث عن حلول مستدامة ترتقي بجودة منتجاتها وتدعم أهداف الاستدامة."
-                            data-en="We target companies and organizations seeking sustainable solutions that enhance product performance and support sustainability goals.">
-                            نستهدف الشركات والمؤسسات التي تبحث عن حلول مستدامة ترتقي بجودة منتجاتها وتدعم أهداف الاستدامة.
-                        </p>
+<section id="partnerships" class="py-24 bg-slate-900/40 border-y border-slate-800">
 
+<div class="max-w-7xl mx-auto px-4">
 
-                        <ul class="space-y-4 text-slate-300">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
 
-                            <li class="flex items-center gap-3">
+<div class="reveal">
 
-                                <i
-                                    class="fa-solid fa-building text-eco-400"></i>
+<div class="text-eco-400 font-bold text-sm mb-3">
+06 / PARTNERSHIPS
+</div>
 
-                                <span
-                                    data-ar="شركات المقاولات والبناء"
-                                    data-en="Construction Companies">
-                                    شركات المقاولات والبناء
-                                </span>
+<h2 class="text-3xl sm:text-5xl font-black mb-6"
+data-ar="نبني المنظومة معًا"
+data-en="Building the ecosystem together">
+نبني المنظومة معًا
+</h2>
 
-                            </li>
+<p class="text-slate-400 text-lg leading-relaxed mb-8"
+data-ar="نبحث عن شركاء يشاركوننا الرؤية في تحويل التحديات البيئية إلى فرص صناعية."
+data-en="We are looking for partners who share our vision of turning environmental challenges into industrial opportunities.">
+نبحث عن شركاء يشاركوننا الرؤية في تحويل التحديات البيئية إلى فرص صناعية.
+</p>
 
 
-                            <li class="flex items-center gap-3">
+<div class="space-y-4">
 
-                                <i
-                                    class="fa-solid fa-car text-eco-400"></i>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-eco-500/10 text-eco-400 flex items-center justify-center">
+<i class="fa-solid fa-building"></i>
+</div>
+<span data-ar="شركات البناء والمقاولات"
+data-en="Construction companies">
+شركات البناء والمقاولات
+</span>
+</div>
 
-                                <span
-                                    data-ar="قطاع صناعة السيارات"
-                                    data-en="Automotive Industry">
-                                    قطاع صناعة السيارات
-                                </span>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-eco-500/10 text-eco-400 flex items-center justify-center">
+<i class="fa-solid fa-car"></i>
+</div>
+<span data-ar="قطاع السيارات"
+data-en="Automotive sector">
+قطاع السيارات
+</span>
+</div>
 
-                            </li>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-eco-500/10 text-eco-400 flex items-center justify-center">
+<i class="fa-solid fa-ship"></i>
+</div>
+<span data-ar="المنشآت والصناعات البحرية"
+data-en="Marine industries">
+المنشآت والصناعات البحرية
+</span>
+</div>
 
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-eco-500/10 text-eco-400 flex items-center justify-center">
+<i class="fa-solid fa-flask"></i>
+</div>
+<span data-ar="مراكز الأبحاث والمختبرات"
+data-en="Research centers">
+مراكز الأبحاث والمختبرات
+</span>
+</div>
 
-                            <li class="flex items-center gap-3">
+</div>
 
-                                <i
-                                    class="fa-solid fa-ship text-eco-400"></i>
+</div>
 
-                                <span
-                                    data-ar="المنشآت والصناعات البحرية"
-                                    data-en="Marine Industries">
-                                    المنشآت والصناعات البحرية
-                                </span>
 
-                            </li>
+<div class="glass rounded-3xl p-8 sm:p-10 reveal">
 
+<div class="text-5xl mb-6">🌱</div>
 
-                            <li class="flex items-center gap-3">
+<h3 class="text-2xl font-black mb-5"
+data-ar="فرصة للمستثمرين والشركاء"
+data-en="An opportunity for investors & partners">
+فرصة للمستثمرين والشركاء
+</h3>
 
-                                <i
-                                    class="fa-solid fa-handshake text-eco-400"></i>
+<p class="text-slate-400 leading-relaxed mb-7"
+data-ar="إذا كنت مستثمرًا، جهة صناعية، مركز أبحاث أو شريكًا محتملًا، يسعدنا أن نبدأ محادثة حول فرص التعاون."
+data-en="If you are an investor, industrial organization, research center or potential partner, we would love to start a conversation about collaboration.">
+إذا كنت مستثمرًا، جهة صناعية، مركز أبحاث أو شريكًا محتملًا، يسعدنا أن نبدأ محادثة حول فرص التعاون.
+</p>
 
-                                <span
-                                    data-ar="المستثمرون والجهات البيئية"
-                                    data-en="Investors & Environmental Organizations">
-                                    المستثمرون والجهات البيئية
-                                </span>
+<a href="#contact"
+class="btn-primary block text-center py-4 rounded-2xl bg-eco-600 hover:bg-eco-500 font-bold transition"
+data-ar="ابدأ محادثة"
+data-en="Start a conversation">
+ابدأ محادثة
+</a>
 
-                            </li>
+</div>
 
-                        </ul>
+</div>
 
-                    </div>
+</div>
 
+</section>
 
-                    <div
-                        class="bg-gradient-to-br from-eco-900/40 to-slate-800 p-8 rounded-3xl border border-eco-500/30">
 
-                        <h3
-                            class="text-2xl font-bold mb-4 text-white"
-                            data-ar="فرص الشراكة الاستراتيجية"
-                            data-en="Strategic Partnership Opportunities">
-                            فرص الشراكة الاستراتيجية
-                        </h3>
+<!-- ================= CONTACT ================= -->
 
+<section id="contact" class="py-24">
 
-                        <p
-                            class="text-slate-300 mb-6 text-sm leading-relaxed"
-                            data-ar="نرحب بالتعاون مع مصانع تدوير البلاستيك ومراكز الأبحاث والمستثمرين الراغبين في قيادة مستقبل الكيمياء الخضراء."
-                            data-en="We welcome collaboration with plastic recycling facilities, research centers, and investors interested in shaping the future of green chemistry.">
-                            نرحب بالتعاون مع مصانع تدوير البلاستيك ومراكز الأبحاث والمستثمرين الراغبين في قيادة مستقبل الكيمياء الخضراء.
-                        </p>
+<div class="max-w-5xl mx-auto px-4">
 
+<div class="text-center mb-14 reveal">
 
-                        <div
-                            class="p-4 bg-slate-900/60 rounded-2xl border border-slate-700 mb-6">
+<div class="text-eco-400 font-bold text-sm mb-3">
+07 / CONTACT
+</div>
 
-                            <span
-                                class="text-eco-400 font-bold block mb-1"
-                                data-ar="لماذا EcoReact؟"
-                                data-en="Why EcoReact?">
-                                لماذا EcoReact؟
-                            </span>
+<h2 class="text-3xl sm:text-5xl font-black mb-5"
+data-ar="لنبني المستقبل معًا"
+data-en="Let's build the future together">
+لنبني المستقبل معًا
+</h2>
 
+<p class="text-slate-400"
+data-ar="مستثمر؟ شريك؟ عميل محتمل؟ تواصل معنا."
+data-en="Investor? Partner? Potential customer? Get in touch.">
+مستثمر؟ شريك؟ عميل محتمل؟ تواصل معنا.
+</p>
 
-                            <p
-                                class="text-slate-400 text-xs"
-                                data-ar="نموذج يجمع بين الاستدامة والابتكار الكيميائي والقيمة الصناعية."
-                                data-en="A model combining sustainability, chemical innovation, and industrial value.">
-                                نموذج يجمع بين الاستدامة والابتكار الكيميائي والقيمة الصناعية.
-                            </p>
+</div>
 
-                        </div>
 
+<div class="glass rounded-3xl p-6 sm:p-10 reveal">
 
-                        <a href="#contact"
-                            class="block text-center py-3 bg-eco-600 hover:bg-eco-500 text-white font-bold rounded-xl transition"
-                            data-ar="ناقش فرص التعاون الآن"
-                            data-en="Discuss Partnership Opportunities">
-                            ناقش فرص التعاون الآن
-                        </a>
+<form id="contactForm">
 
-                    </div>
+<div class="grid sm:grid-cols-2 gap-5">
 
-                </div>
+<div>
 
-            </div>
+<label class="block text-sm font-semibold text-slate-300 mb-2"
+data-ar="الاسم الكامل"
+data-en="Full name">
+الاسم الكامل
+</label>
 
-        </section>
+<input class="input"
+type="text"
+required
+placeholder="اكتب اسمك"
+data-placeholder-ar="اكتب اسمك"
+data-placeholder-en="Your name">
 
+</div>
 
-        <!-- ================= CONTACT ================= -->
 
-        <section id="contact"
-            class="py-20 bg-slate-900/50 border-t border-slate-800">
+<div>
 
-            <div
-                class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<label class="block text-sm font-semibold text-slate-300 mb-2"
+data-ar="البريد الإلكتروني"
+data-en="Email">
+البريد الإلكتروني
+</label>
 
-                <div class="text-center mb-12">
+<input class="input"
+type="email"
+required
+placeholder="name@example.com"
+data-placeholder-ar="name@example.com"
+data-placeholder-en="name@example.com">
 
-                    <span
-                        class="text-eco-400 font-bold text-sm"
-                        data-ar="تواصل معنا"
-                        data-en="CONTACT US">
-                        تواصل معنا
-                    </span>
+</div>
 
+</div>
 
-                    <h2
-                        class="text-3xl sm:text-4xl font-black mt-2 mb-4"
-                        data-ar="كن جزءاً من ثورة الاستدامة"
-                        data-en="Be Part of the Sustainability Revolution">
-                        كن جزءاً من ثورة الاستدامة
-                    </h2>
 
+<div class="mt-5">
 
-                    <p
-                        class="text-slate-300"
-                        data-ar="سواء كنت مستثمراً أو عميلاً أو شريكاً صناعياً، نحن بانتظار رسالتك."
-                        data-en="Whether you are an investor, customer, or industrial partner, we are waiting to hear from you.">
-                        سواء كنت مستثمراً أو عميلاً أو شريكاً صناعياً، نحن بانتظار رسالتك.
-                    </p>
+<label class="block text-sm font-semibold text-slate-300 mb-2"
+data-ar="نوع التواصل"
+data-en="Contact type">
+نوع التواصل
+</label>
 
-                </div>
+<select class="input">
 
+<option data-ar="مستثمر" data-en="Investor">مستثمر</option>
+<option data-ar="شريك صناعي" data-en="Industrial partner">شريك صناعي</option>
+<option data-ar="عميل محتمل" data-en="Potential customer">عميل محتمل</option>
+<option data-ar="أخرى" data-en="Other">أخرى</option>
 
-                <form
-                    class="bg-tech-card p-8 sm:p-10 rounded-3xl border border-slate-700 shadow-2xl space-y-6"
-                    onsubmit="sendEmail(event)">
+</select>
 
+</div>
 
-                    <div
-                        class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
-                        <div>
+<div class="mt-5">
 
-                            <label
-                                class="block text-sm font-semibold text-slate-300 mb-2"
-                                data-ar="الاسم الكامل"
-                                data-en="Full Name">
-                                الاسم الكامل
-                            </label>
+<label class="block text-sm font-semibold text-slate-300 mb-2"
+data-ar="رسالتك"
+data-en="Your message">
+رسالتك
+</label>
 
+<textarea
+class="input"
+rows="5"
+required
+placeholder="اكتب رسالتك هنا..."
+data-placeholder-ar="اكتب رسالتك هنا..."
+data-placeholder-en="Write your message here..."></textarea>
 
-                            <input
-                                id="name"
-                                type="text"
-                                required
-                                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500"
-                                placeholder="أدخل اسمك"
-                                data-placeholder-ar="أدخل اسمك"
-                                data-placeholder-en="Enter your name">
+</div>
 
-                        </div>
 
+<button
+type="submit"
+class="btn-primary w-full mt-6 py-4 rounded-2xl bg-eco-600 hover:bg-eco-500 font-bold text-lg transition">
 
-                        <div>
+<span data-ar="إرسال الرسالة"
+data-en="Send message">
+إرسال الرسالة
+</span>
 
-                            <label
-                                class="block text-sm font-semibold text-slate-300 mb-2"
-                                data-ar="البريد الإلكتروني"
-                                data-en="Email Address">
-                                البريد الإلكتروني
-                            </label>
+<i class="fa-solid fa-paper-plane mx-2"></i>
 
+</button>
 
-                            <input
-                                id="email"
-                                type="email"
-                                required
-                                class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500"
-                                placeholder="name@example.com">
+</form>
 
-                        </div>
+</div>
 
-                    </div>
+</div>
 
+</section>
 
-                    <div>
 
-                        <label
-                            class="block text-sm font-semibold text-slate-300 mb-2"
-                            data-ar="صفة التواصل"
-                            data-en="Contact Type">
-                            صفة التواصل
-                        </label>
+<!-- ================= SOCIAL ================= -->
 
+<section class="pb-20">
 
-                        <select
-                            id="type"
-                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500">
+<div class="max-w-5xl mx-auto px-4">
 
-                            <option
-                                data-ar="مستثمر / صندوق استثماري"
-                                data-en="Investor / Investment Fund">
-                                مستثمر / صندوق استثماري
-                            </option>
+<div class="glass rounded-3xl p-8 text-center reveal">
 
-                            <option
-                                data-ar="شريك صناعي أو تجاري"
-                                data-en="Industrial or Commercial Partner">
-                                شريك صناعي أو تجاري
-                            </option>
+<h3 class="text-2xl font-black mb-3"
+data-ar="تابع رحلة EcoReact"
+data-en="Follow EcoReact">
+تابع رحلة EcoReact
+</h3>
 
-                            <option
-                                data-ar="عميل محتمل"
-                                data-en="Potential Customer">
-                                عميل محتمل
-                            </option>
+<p class="text-slate-400 mb-7"
+data-ar="تابعنا وتواصل معنا عبر منصاتنا الرسمية."
+data-en="Follow and connect with us through our official platforms.">
+تابعنا وتواصل معنا عبر منصاتنا الرسمية.
+</p>
 
-                            <option
-                                data-ar="أخرى"
-                                data-en="Other">
-                                أخرى
-                            </option>
 
-                        </select>
+<div class="flex flex-wrap justify-center gap-4">
 
-                    </div>
+<a
+href="https://x.com/ecoreactt?s=11"
+target="_blank"
+rel="noopener"
+class="social-btn flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 hover:border-slate-500">
 
+<i class="fa-brands fa-x-twitter text-xl"></i>
 
-                    <div>
+<span>X</span>
 
-                        <label
-                            class="block text-sm font-semibold text-slate-300 mb-2"
-                            data-ar="الرسالة"
-                            data-en="Message">
-                            الرسالة
-                        </label>
+</a>
 
 
-                        <textarea
-                            id="message"
-                            rows="5"
-                            required
-                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-eco-500"
-                            placeholder="اكتب تفاصيل استفسارك أو طلب الشراكة..."
-                            data-placeholder-ar="اكتب تفاصيل استفسارك أو طلب الشراكة..."
-                            data-placeholder-en="Write your inquiry or partnership request..."></textarea>
+<a
+href="https://www.instagram.com/ecoreact11?igsi=MXh1NmN4MWgzcmR2MQ=="
+target="_blank"
+rel="noopener"
+class="social-btn flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 hover:border-pink-500/50">
 
-                    </div>
+<i class="fa-brands fa-instagram text-xl"></i>
 
+<span>Instagram</span>
 
-                    <button
-                        type="submit"
-                        class="w-full py-4 rounded-xl bg-eco-600 hover:bg-eco-500 text-white font-bold text-lg shadow-xl shadow-eco-600/30 transition">
+</a>
 
-                        <i class="fa-solid fa-paper-plane ml-2"></i>
 
-                        <span
-                            data-ar="إرسال الطلب"
-                            data-en="Send Request">
-                            إرسال الطلب
-                        </span>
+<a
+href="mailto:ecoreact@gmail.com"
+class="social-btn flex items-center gap-3 px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 hover:border-eco-500/50">
 
-                    </button>
+<i class="fa-solid fa-envelope text-xl text-eco-400"></i>
 
-                </form>
+<span>Email</span>
 
-            </div>
+</a>
 
-        </section>
+</div>
 
-    </main>
+</div>
 
+</div>
 
-    <!-- ================= FOOTER ================= -->
+</section>
 
-    <footer
-        class="bg-slate-950 border-t border-slate-800 py-12">
 
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- ================= FOOTER ================= -->
 
-            <div
-                class="flex flex-col lg:flex-row items-center justify-between gap-8">
+<footer class="border-t border-slate-800 bg-slate-950 py-10">
 
+<div class="max-w-7xl mx-auto px-4">
 
-                <!-- LOGO -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-5 text-center">
 
-                <div class="flex items-center gap-3">
+<div class="flex items-center gap-3">
 
-                    <img src="IMG_0931.jpeg"
-                        alt="EcoReact Logo"
-                        class="w-12 h-12 object-cover rounded-xl">
+<img src="IMG_0931.jpeg"
+class="w-10 h-10 rounded-xl object-cover"
+alt="EcoReact">
 
-                    <span
-                        class="text-xl font-bold text-white">
-                        EcoReact
-                    </span>
+<div class="font-black text-lg">
+Eco<span class="text-eco-400">React</span>
+</div>
 
-                </div>
+</div>
 
 
-                <!-- COPYRIGHT -->
+<p class="text-slate-500 text-sm"
+data-ar="© 2026 EcoReact. جميع الحقوق محفوظة."
+data-en="© 2026 EcoReact. All rights reserved.">
+© 2026 EcoReact. جميع الحقوق محفوظة.
+</p>
 
-                <p
-                    class="text-slate-400 text-sm text-center"
-                    data-ar="جميع الحقوق محفوظة © 2026 EcoReact. نحو اقتصاد دائري مستدام."
-                    data-en="© 2026 EcoReact. All rights reserved. Building a sustainable circular economy.">
-                    جميع الحقوق محفوظة © 2026 EcoReact. نحو اقتصاد دائري مستدام.
-                </p>
 
+<div class="flex gap-4 text-slate-400">
 
-                <!-- SOCIAL MEDIA -->
+<a href="https://x.com/ecoreactt?s=11"
+target="_blank"
+class="hover:text-white transition">
+<i class="fa-brands fa-x-twitter"></i>
+</a>
 
-                <div class="flex items-center gap-3">
+<a href="https://www.instagram.com/ecoreact11?igsi=MXh1NmN4MWgzcmR2MQ=="
+target="_blank"
+class="hover:text-pink-400 transition">
+<i class="fa-brands fa-instagram"></i>
+</a>
 
+<a href="mailto:ecoreact@gmail.com"
+class="hover:text-eco-400 transition">
+<i class="fa-solid fa-envelope"></i>
+</a>
 
-                    <!-- X -->
+</div>
 
-                    <a
-                        href="https://x.com/ecoreactt?s=11"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-icon bg-slate-800 text-white hover:bg-black"
-                        aria-label="X">
+</div>
 
-                        <i
-                            class="fa-brands fa-x-twitter text-xl"></i>
+</div>
 
-                    </a>
+</footer>
 
 
-                    <!-- INSTAGRAM -->
+<!-- BACK TO TOP -->
 
-                    <a
-                        href="https://www.instagram.com/ecoreact11?igsi=MXh1NmN4MWgzcmR2MQ=="
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-icon bg-slate-800 text-white hover:bg-pink-600"
-                        aria-label="Instagram">
+<button
+id="topBtn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})"
+class="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-2xl bg-eco-600 hover:bg-eco-500 shadow-xl shadow-eco-600/20 flex items-center justify-center">
 
-                        <i
-                            class="fa-brands fa-instagram text-xl"></i>
+<i class="fa-solid fa-arrow-up"></i>
 
-                    </a>
+</button>
 
 
-                    <!-- EMAIL -->
+<!-- ================= JAVASCRIPT ================= -->
 
-                    <a
-                        href="mailto:ecoreact@gmail.com"
-                        class="social-icon bg-slate-800 text-white hover:bg-eco-600"
-                        aria-label="Email">
+<script>
 
-                        <i
-                            class="fa-solid fa-envelope text-xl"></i>
+/* Navbar */
 
-                    </a>
+const navbar = document.getElementById("navbar");
+const topBtn = document.getElementById("topBtn");
 
-                </div>
+window.addEventListener("scroll",()=>{
 
-            </div>
+    if(window.scrollY > 30){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
 
+    if(window.scrollY > 500){
+        topBtn.classList.add("show");
+    }else{
+        topBtn.classList.remove("show");
+    }
 
-            <!-- SOCIAL TEXT -->
+});
 
-            <div class="text-center mt-8">
 
-                <p
-                    class="text-slate-500 text-sm"
-                    data-ar="تابع EcoReact أو تواصل معنا مباشرة"
-                    data-en="Follow EcoReact or contact us directly">
-                    تابع EcoReact أو تواصل معنا مباشرة
-                </p>
+/* Mobile menu */
 
-            </div>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
 
-        </div>
+menuBtn.addEventListener("click",()=>{
 
-    </footer>
+    mobileMenu.classList.toggle("hidden");
 
+});
 
-    <!-- ================= JAVASCRIPT ================= -->
 
-    <script>
+document.querySelectorAll(".mobile-link").forEach(link=>{
 
-        let currentLanguage = "ar";
+    link.addEventListener("click",()=>{
+        mobileMenu.classList.add("hidden");
+    });
 
+});
 
-        /* ================= MOBILE MENU ================= */
 
-        const menuBtn = document.getElementById("menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
+/* Reveal animations */
 
-        menuBtn.addEventListener("click", () => {
+const revealObserver = new IntersectionObserver(
 
-            mobileMenu.classList.toggle("hidden");
+(entries)=>{
 
-        });
+entries.forEach(entry=>{
 
+if(entry.isIntersecting){
 
-        /* إغلاق القائمة عند الضغط على رابط */
+entry.target.classList.add("show");
 
-        document.querySelectorAll("#mobile-menu a").forEach(link => {
+}
 
-            link.addEventListener("click", () => {
+});
 
-                mobileMenu.classList.add("hidden");
+},
 
-            });
+{
+threshold:.12
+}
 
-        });
+);
 
 
-        /* ================= LANGUAGE ================= */
+document.querySelectorAll(".reveal").forEach(el=>{
+    revealObserver.observe(el);
+});
 
-        function toggleLanguage() {
 
-            currentLanguage = currentLanguage === "ar" ? "en" : "ar";
+/* Counter */
 
-            document.documentElement.lang = currentLanguage;
+const counterObserver = new IntersectionObserver(
 
-            document.documentElement.dir =
-                currentLanguage === "ar" ? "rtl" : "ltr";
+(entries,observer)=>{
 
+entries.forEach(entry=>{
 
-            /* تغيير النصوص */
+if(!entry.isIntersecting) return;
 
-            document.querySelectorAll("[data-ar]").forEach(element => {
+const counter = entry.target;
+const target = Number(counter.dataset.target);
 
-                element.textContent =
-                    element.getAttribute(`data-${currentLanguage}`);
+let current = 0;
 
-            });
+const duration = 1000;
+const start = performance.now();
 
+function update(time){
 
-            /* تغيير الـ placeholders */
+const progress = Math.min((time-start)/duration,1);
 
-            document.querySelectorAll("[data-placeholder-ar]").forEach(input => {
+current = Math.floor(progress*target);
 
-                input.placeholder =
-                    input.getAttribute(`data-placeholder-${currentLanguage}`);
+counter.textContent = current;
 
-            });
+if(progress < 1){
+requestAnimationFrame(update);
+}else{
+counter.textContent = target;
+}
 
+}
 
-            /* تغيير خيارات select */
+requestAnimationFrame(update);
 
-            document.querySelectorAll("option[data-ar]").forEach(option => {
+observer.unobserve(counter);
 
-                option.textContent =
-                    option.getAttribute(`data-${currentLanguage}`);
+});
 
-            });
+},
 
+{
+threshold:.8
+}
 
-            /* تغيير زر اللغة */
+);
 
-            document.getElementById("languageBtn").textContent =
-                currentLanguage === "ar" ? "EN" : "عربي";
 
+document.querySelectorAll(".counter").forEach(el=>{
+    counterObserver.observe(el);
+});
 
-            /* تغيير عنوان الموقع */
 
-            document.title =
-                currentLanguage === "ar"
-                    ? "EcoReact | إعادة تدوير البلاستيك إلى طلاء نانو مستدام"
-                    : "EcoReact | Sustainable Plastic-to-Nano Coating Solutions";
+/* Language */
 
-        }
+const langBtn = document.getElementById("langBtn");
 
+let currentLang = "ar";
 
-        /* ================= EMAIL ================= */
+function translatePage(){
 
-        function sendEmail(event) {
+document.documentElement.lang = currentLang;
 
-            event.preventDefault();
+document.documentElement.dir =
+currentLang === "ar" ? "rtl" : "ltr";
 
-            const name =
-                document.getElementById("name").value;
+document.body.classList.toggle("ar",currentLang==="ar");
+document.body.classList.toggle("en",currentLang==="en");
 
-            const email =
-                document.getElementById("email").value;
 
-            const type =
-                document.getElementById("type").value;
+document.querySelectorAll("[data-ar]").forEach(el=>{
 
-            const message =
-                document.getElementById("message").value;
+const value = el.getAttribute(
+currentLang === "ar" ? "data-ar" : "data-en"
+);
 
+if(value !== null){
 
-            const subject =
-                currentLanguage === "ar"
-                    ? "رسالة جديدة من موقع EcoReact"
-                    : "New Message from EcoReact Website";
+el.textContent = value;
 
+}
 
-            const body =
-                currentLanguage === "ar"
-                    ?
-                    `الاسم: ${name}
+});
 
-البريد الإلكتروني: ${email}
 
-صفة التواصل: ${type}
+document.querySelectorAll("[data-placeholder-ar]").forEach(el=>{
 
-الرسالة:
-${message}`
-                    :
-                    `Name: ${name}
+el.placeholder =
+currentLang === "ar"
+? el.dataset.placeholderAr
+: el.dataset.placeholderEn;
 
-Email: ${email}
+});
 
-Contact Type: ${type}
 
-Message:
-${message}`;
+/* Select options */
 
+document.querySelectorAll("option[data-ar]").forEach(option=>{
 
-            window.location.href =
-                `mailto:ecoreact@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+option.textContent =
+currentLang === "ar"
+? option.dataset.ar
+: option.dataset.en;
 
-        }
+});
 
-    </script>
+
+langBtn.textContent =
+currentLang === "ar"
+? "EN"
+: "عربي";
+
+}
+
+
+langBtn.addEventListener("click",()=>{
+
+currentLang =
+currentLang === "ar"
+? "en"
+: "ar";
+
+translatePage();
+
+});
+
+
+/* Contact form */
+
+const contactForm =
+document.getElementById("contactForm");
+
+contactForm.addEventListener("submit",(event)=>{
+
+event.preventDefault();
+
+if(currentLang === "ar"){
+
+alert("تم إرسال طلبك بنجاح 🌱\nسنتواصل معك قريبًا.");
+
+}else{
+
+alert("Your message has been submitted successfully 🌱\nWe will contact you soon.");
+
+}
+
+contactForm.reset();
+
+});
+
+
+/* Smooth scrolling */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+const target =
+document.querySelector(this.getAttribute("href"));
+
+if(target){
+
+e.preventDefault();
+
+target.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+});
+
+});
+
+
+/* Initial */
+
+translatePage();
+
+</script>
 
 </body>
-
 </html>
